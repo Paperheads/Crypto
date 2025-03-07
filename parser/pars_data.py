@@ -6,14 +6,27 @@ headers = {
 }
 
 
-
-def take_data(cryptocurrency : str):
-
+def take_data(cryptocurrency: str):
     response = requests.get(f'https://api.coincap.io/v2/assets/{cryptocurrency}', headers=headers)
 
-    return response.json()
+    info = response.json()
+    crypto_data = info
 
-b = take_data('bitcoin')
+    id = crypto_data['data']['id']
+    value = crypto_data['data']['priceUsd']
+    volume = crypto_data['data']['volumeUsd24Hr']
+    currency = crypto_data['data']['name']
 
-for i in b['data']:
-    print(f"The category {i} is {b['data'][i]}")
+    return [id, value, volume, currency]
+
+
+def validate(name: str):
+
+    response = requests.get(f'https://api.coincap.io/v2/assets/{name}', headers=headers)
+
+    if response.status_code == 200:
+        return True
+    return False
+
+
+print(validate('b'))

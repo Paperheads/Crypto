@@ -1,5 +1,6 @@
 from database import Base
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy.orm import relationship
 
 
 class Users(Base):
@@ -23,6 +24,9 @@ class Crypto(Base):
 
     owner_id = Column(Integer, ForeignKey('users.id'))
 
+    details = relationship("CryptoData", back_populates="crypto")
+
+
     
 class CryptoData(Base):
     __tablename__ = 'crypto_data'
@@ -34,4 +38,4 @@ class CryptoData(Base):
 
     owner_id = Column(Integer, ForeignKey('crypto.id'))
 
-
+    crypto = relationship("Crypto", back_populates="details")
