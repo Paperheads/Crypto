@@ -9,8 +9,7 @@ headers = {
 def take_data(cryptocurrency: str):
     response = requests.get(f'https://api.coincap.io/v2/assets/{cryptocurrency}', headers=headers)
 
-    info = response.json()
-    crypto_data = info
+    crypto_data = response.json()
 
     id = crypto_data['data']['id']
     value = crypto_data['data']['priceUsd']
@@ -28,5 +27,3 @@ def validate(name: str):
         return True
     return False
 
-
-print(validate('b'))
