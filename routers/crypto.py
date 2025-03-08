@@ -1,7 +1,7 @@
 from http.client import HTTPException
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Path
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
@@ -80,3 +80,15 @@ async def create_crypto(db: db_dependency, create_crypto: CreateCrypto):
 
     else:
         raise HTTPException(status_code=400, detail="Invalid cryptocurrency data")
+
+
+@router.delete("crypto/{crypto_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_crypto(db: db_dependency, crypto_id: int = Path(gt=0)):
+
+    crypto = db.query(Crypto).filter(Crypto.id == crypto_id).first()
+
+    if crypto is None:
+        raise HTTPException(status_code=404, detail="Crypto not found")
+
+    db.query(Crypto).filter(Crypto.id == crypto.id).delete()
+    db.commit()
