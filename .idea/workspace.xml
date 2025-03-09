@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d32a8c72-7568-42c2-90b6-62c7b3be8b27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/routers/crypto.py" beforeDir="false" afterPath="$PROJECT_DIR$/routers/crypto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +110,7 @@
       <workItem from="1741363713591" duration="2000" />
       <workItem from="1741363718859" duration="5226000" />
       <workItem from="1741372964903" duration="359000" />
-      <workItem from="1741394744437" duration="1608000" />
+      <workItem from="1741394744437" duration="3198000" />
     </task>
     <servers />
   </component>

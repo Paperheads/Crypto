@@ -1,4 +1,26 @@
 import requests
+import models
+from pydantic import BaseModel, Field
+from datetime import datetime
+from typing import Annotated
+from sqlalchemy.orm import Session
+from fastapi import Depends
+
+
+class Create_Crypto_data(BaseModel):
+    value : float
+    volume : float
+    currency : str
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+db_dependency = Annotated[Session, Depends(get_db)]
+
 
 headers = {
     "Accept-Encoding": "gzip",
@@ -11,12 +33,11 @@ def take_data(cryptocurrency: str):
 
     crypto_data = response.json()
 
-    id = crypto_data['data']['id']
     value = crypto_data['data']['priceUsd']
     volume = crypto_data['data']['volumeUsd24Hr']
     currency = crypto_data['data']['name']
 
-    return [id, value, volume, currency]
+    return [value, volume, currency]
 
 
 def validate(name: str):
@@ -26,4 +47,21 @@ def validate(name: str):
     if response.status_code == 200:
         return True
     return False
+
+def add_data(db: db_dependency, name:str, create_data = Create_Crypto_data ):
+
+    data = take_data(name)
+    create_data = models.CryptoData(
+    value = data[0],
+    volume = data[1],
+    currency = data[2]
+    )
+
+    db.add(create_data)
+    db.commit()
+
+add_data(db_dependency, 'bitcoin', Create_Crypto_data)
+
+
+
 
