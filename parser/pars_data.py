@@ -48,19 +48,6 @@ def validate(name: str):
         return True
     return False
 
-def add_data(db: db_dependency, name:str, create_data = Create_Crypto_data ):
-
-    data = take_data(name)
-    create_data = models.CryptoData(
-    value = data[0],
-    volume = data[1],
-    currency = data[2]
-    )
-
-    db.add(create_data)
-    db.commit()
-
-add_data(db_dependency, 'bitcoin', Create_Crypto_data)
 
 
 

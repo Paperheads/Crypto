@@ -92,3 +92,5 @@ async def delete_crypto(db: db_dependency, crypto_id: int = Path(gt=0)):
 
     db.query(Crypto).filter(Crypto.id == crypto.id).delete()
     db.commit()
+
+
