@@ -22,9 +22,6 @@ class Crypto(Base):
     title = Column(String)
     data = Column(String)
 
-    owner_id = Column(Integer, ForeignKey('users.id'))
-
-    details = relationship("CryptoData", back_populates="crypto")
 
 
     
@@ -36,6 +33,4 @@ class CryptoData(Base):
     volume = Column(Integer)
     currency = Column(String)
 
-    owner_id = Column(Integer, ForeignKey('crypto.id'))
 
-    crypto = relationship("Crypto", back_populates="details")
