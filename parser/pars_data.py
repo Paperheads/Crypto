@@ -4,7 +4,6 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 from typing import Annotated
 from sqlalchemy.orm import Session
-from fastapi import Depends
 
 
 class Create_Crypto_data(BaseModel):
@@ -48,7 +47,7 @@ def validate(name: str):
         return True
     return False
 
-#I dii check_up because
+#I dii check_up becaus
 
 
 
