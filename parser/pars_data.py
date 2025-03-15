@@ -48,6 +48,7 @@ def validate(name: str):
     return False
 
 #I dii check_up because
+#like smth new
 
 
 
