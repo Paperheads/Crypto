@@ -47,7 +47,7 @@ def validate(name: str):
         return True
     return False
 
-#I dii check_up because
+#day check_up
 
 
 
