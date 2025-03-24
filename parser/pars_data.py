@@ -47,8 +47,7 @@ def validate(name: str):
         return True
     return False
 
-#day check_up 2
-#day chack_up 5
+
 
 
 
