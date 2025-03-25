@@ -5,6 +5,7 @@ class Solution:
 
     def isValidSudoku(self, board: List[List[str]]) -> bool:
 
+
         for i in range(len(board)):
             sub_list = []
             for j in range(len(board)):
@@ -13,7 +14,7 @@ class Solution:
             print(sub_list)
             for sub in sub_list:
                 if sub_list.count(sub) > 1 and sub != '.':
-                    return False
+                    return True
 
         for j in range(len(board)):
             sub_list = []
