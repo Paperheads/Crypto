@@ -14,7 +14,7 @@ class Solution:
             print(sub_list)
             for sub in sub_list:
                 if sub_list.count(sub) > 1 and sub != '.':
-                    return True
+                    return False
 
         for j in range(len(board)):
             sub_list = []
