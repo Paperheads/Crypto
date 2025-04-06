@@ -44,7 +44,7 @@ def validate(name: str):
     response = requests.get(f'https://api.coincap.io/v2/assets/{name}', headers=headers)
 
     if response.status_code == 200:
-        return True
+        return False
     return False
 
 
