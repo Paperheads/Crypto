@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d32a8c72-7568-42c2-90b6-62c7b3be8b27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/pars_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser/pars_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +162,7 @@
       <workItem from="1743969232986" duration="26000" />
       <workItem from="1744057760855" duration="23000" />
       <workItem from="1744126414430" duration="634000" />
+      <workItem from="1744234455117" duration="133000" />
     </task>
     <servers />
   </component>
